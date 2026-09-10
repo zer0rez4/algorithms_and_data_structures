@@ -21,10 +21,10 @@ def chord(l,r,eps): # метод хорд
     while True:
         x = l - F(l) * (r-l) / (F(r)-F(l))
 
-        if abs(x-prev) <= eps:
+        if abs(x-prev) <= eps: # проверка расстояния между границами
             return x
 
-        if F(x) * F(r) > 0:
+        if F(x) * F(r) > 0: # проверка в части от X находится корень
             r = x
         else:
             l = x
@@ -35,7 +35,7 @@ EPS = 0.001
 l = 0
 r = 2
 
-if F(l) * F(r) > 0:
+if F(l) * F(r) > 0: # проверка монотонности
     print('Корней на промежутке нет')
 else:
     print(bisection(l,r,EPS))
